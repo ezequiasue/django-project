@@ -1,0 +1,35 @@
+{% load static %}
+
+{%block delete-conteudo %}
+
+<!-- Delete Modal HTML -->
+
+{% for lancamento in page_obj %}
+
+<div id="deleteEmployeeModal-{{forloop.counter}}" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="/delete/ {{lancamento.id}}" method="post">
+
+                {% csrf_token %}
+
+                <div class="modal-header">
+                    <h4 class="modal-title">Delete Employee</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete these Records?</p>
+                    <p class="text-warning"><small>{{lancamento.descricao}} Information Are Delete ?</small></p>
+                </div>
+                <div class="modal-footer">
+                    <input type="button" class="btn btn-secondary" data-dismiss="modal" value="Cancel">
+                    <a href="/delete/ {{lancamento.id}}" type="submit" class="btn btn-danger">Delete</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endfor %}
+
+{%endblock%}

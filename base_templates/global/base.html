@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+  {% include 'global/partials/_head.html' %}
+
+</head>
+
+<header>
+  {% include 'global/partials/_header.html' %}
+</header>
+
+
+<body>
+
+ <!-- Add Content modal -->
+ {%block add-conteudo %} {%endblock%}
+ {% include 'global/partials/_add_lancamento.html' %}
+
+  <!-- Edit Content modal -->
+  {%block edit-conteudo %} {%endblock%}
+  {% include 'global/partials/_edit_lancamento.html' %}
+
+  <!-- Delete Content modal -->
+  {%block delete-conteudo %} {%endblock%}
+  {% include 'global/partials/_delete_lancamento.html' %}
+  
+  <!-- Edit Content detalhe-lancamento -->
+  {% block content %} {% endblock %}
+
+
+  <main class="content">
+
+    {% include 'global/partials/_pagination.html' %}
+
+  </main>
+
+
+</body>
+
+
+</html>

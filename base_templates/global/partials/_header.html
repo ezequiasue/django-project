@@ -1,0 +1,42 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  
+  <a class="navbar-brand" href="{% url 'app:dashboard'%}">Dashboard</a>
+  
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false"> Cadastros</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">       
+          <a class="dropdown-item" class="btn btn-primary" data-toggle="modal" data-target="#addEmployeeModal">Categorias</a>             
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false"> Movimentação</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" class="btn btn-primary" data-toggle="modal" data-target="#addEmployeeModal">Lancamentos</a>       
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">Relatórios</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{% url 'app:listall'%}">Despesas</a>
+        </div>
+      </li>      
+    </ul>
+
+    
+    <div class="search">
+      <form class="form-inline my-2 my-lg-0" action="{% url 'app:search' %}"  method="GET" >
+        <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar"id="search"name="q"value="{{ request.GET.q.strip }}">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
+      </form>
+
+    </div>
+    
+  </div>
+</nav>
+

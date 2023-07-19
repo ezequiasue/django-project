@@ -1,0 +1,59 @@
+{% extends 'global/base.html' %} 
+
+{% block content %}
+
+
+
+<h1 class="mt-5">Lancamentos</h1>
+<div class="col-sm-6">
+ 
+
+</div>
+    <table class="table table-hover">
+
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Descrição</th>
+          <th scope="col">Data do Lançamento</th>
+          <th scope="col">Data do Pagamento</th>
+          <th scope="col">Valor</th>
+          <th scope="col">Categoria</th>
+          <th scope="col">Author</th>
+          <th scope="col">Nota</th>
+          <th scope="col">Genero</th>
+    
+        </tr>
+      </thead>
+      <tbody>
+
+       
+        <tr class="table-row">
+          <td class="table-cel">
+            <a class="table-link" href="{% url 'app:lancamento' lancamento.id %}">
+              {{lancamento.id}}
+            <td>{{ lancamento.descricao }}</td>
+            <td>{{ lancamento.data_lancamento }}</td>
+            <td>{{ lancamento.data_pagamento }}</td>
+            <td>{{ lancamento.valor }}</td>
+            <td>{{ lancamento.categoria.id }}</td>
+            <td>{{ lancamento.autor.id }}</td>
+            <td>{{ lancamento.nota }}</td>
+            <td>{{ lancamento.genero }}</td>  
+            <td>
+              
+     
+             <a href="#editEmployeeModal-{{forloop.counter}}" class="edit" data-toggle="modal"> <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+             <a href="#deleteEmployeeModal-{{forloop.counter}}" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+  
+            </td>                        
+            </a>     
+        </tr>
+
+     
+    </tbody>
+</table>
+
+
+
+{% endblock %}
